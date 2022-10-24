@@ -1,0 +1,39 @@
+{{ form_start(addToCartForm, {
+    attr: { class: 'cart-add-controls d-flex align-items-center justify-content-baseline' }
+}) }}
+    {% if addToCartForm.color is defined %}
+        <div data-controller="color-square">
+            {{ form_widget(addToCartForm.color, {
+                attr: {'data-color-square-target': 'select'}
+            }) }}
+
+            {% for color in addToCartForm.vars.data.product.colors %}
+
+                <button class="color-square"
+                        aria-label="Choose the color {{ color.name }}"
+                        type="button"
+                        data-color-id="{{ color.id }}"
+                        data-color-square-target="colorSquare"
+                        data-action="color-square#selectColor"
+                        style="background-color: rgb({{ color.red }}, {{ color.green }},{{ color.blue }})"></button>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+    {{ form_widget(addToCartForm.quantity, {
+        attr: { class: 'mx-3' }
+    }) }}
+
+    <button class="btn btn-info btn-sm" formnovalidate>
+        +
+    </button>
+{{ form_end(addToCartForm) }}
+
+<div>
+    {{ form_errors(addToCartForm) }}
+    {% if addToCartForm.color is defined %}
+        {{ form_errors(addToCartForm.color) }}
+    {% endif %}
+    {{ form_errors(addToCartForm.quantity) }}
+</div>
