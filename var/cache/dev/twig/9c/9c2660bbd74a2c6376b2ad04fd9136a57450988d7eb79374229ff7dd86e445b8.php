@@ -105,56 +105,69 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
                     </div>
                     <div class=\"col-9\">
                         <form>
-                            <div class=\"input-group\">
+                            <div
+                                class=\"input-group\"
+                                ";
+        // line 34
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension']->renderStimulusController($this->env, "search-preview", ["url" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage")]);
+        // line 36
+        echo ">
                                 <input
                                     name=\"q\"
                                     value=\"";
-        // line 35
-        echo twig_escape_filter($this->env, (isset($context["searchTerm"]) || array_key_exists("searchTerm", $context) ? $context["searchTerm"] : (function () { throw new RuntimeError('Variable "searchTerm" does not exist.', 35, $this->source); })()), "html", null, true);
+        // line 39
+        echo twig_escape_filter($this->env, (isset($context["searchTerm"]) || array_key_exists("searchTerm", $context) ? $context["searchTerm"] : (function () { throw new RuntimeError('Variable "searchTerm" does not exist.', 39, $this->source); })()), "html", null, true);
         echo "\"
                                     placeholder=\"Search products...\"
                                     type=\"search\"
                                     class=\"form-control\"
+                                    data-action=\"search-preview#onSearchInput\"
                                 >
+                                <div
+                                    class=\"search-preview\"
+                                    data-search-preview-target=\"result\"
+                                >
+
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class=\"row mt-4\">
                     ";
-        // line 45
+        // line 56
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 45, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 56, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 46
+            // line 57
             echo "                        <div class=\"col-xs-12 col-6 mb-2 pb-2\">
                             <div class=\"component-light\">
                                 <div class=\"product-image\">
                                     <a href=\"";
-            // line 49
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            // line 60
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 60)]), "html", null, true);
             echo "\">
                                         <img
                                             alt=\"";
-            // line 51
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 51), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 62), "html", null, true);
             echo "\"
                                             src=\"";
-            // line 52
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/uploads/products/" . twig_get_attribute($this->env, $this->source, $context["product"], "imageFilename", [], "any", false, false, false, 52))), "html", null, true);
+            // line 63
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/uploads/products/" . twig_get_attribute($this->env, $this->source, $context["product"], "imageFilename", [], "any", false, false, false, 63))), "html", null, true);
             echo "\"
                                             class=\"d-block mb-2\"
                                         >
                                     </a>
                                     <h3 class=\"font-weight-bold mb-2 px-2\">
                                         <a href=\"";
-            // line 57
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 57)]), "html", null, true);
+            // line 68
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 68)]), "html", null, true);
             echo "\">
                                             ";
-            // line 58
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 58), "html", null, true);
+            // line 69
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 69), "html", null, true);
             echo "
                                         </a>
                                     </h3>
@@ -163,21 +176,21 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
                                     class=\"p-2 my-3 d-md-flex justify-content-between\">
                                     <p class=\"p-0 d-inline\">
                                         <strong>";
-            // line 65
-            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatCurrency(twig_get_attribute($this->env, $this->source, $context["product"], "priceString", [], "any", false, false, false, 65), "USD"), "html", null, true);
+            // line 76
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatCurrency(twig_get_attribute($this->env, $this->source, $context["product"], "priceString", [], "any", false, false, false, 76), "USD"), "html", null, true);
             echo "</strong>
                                     </p>
                                     <a href=\"";
-            // line 67
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 67)]), "html", null, true);
+            // line 78
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 78)]), "html", null, true);
             echo "\" class=\"btn btn-info\">View Product</a>
                                 </div>
                             </div>
                             <hr>
                             <div class=\"px-2 pb-2\">
                                 <small>brought to you by ";
-            // line 72
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "brand", [], "any", false, false, false, 72), "html", null, true);
+            // line 83
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "brand", [], "any", false, false, false, 83), "html", null, true);
             echo "</small>
                             </div>
                         </div>
@@ -185,7 +198,7 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 76
+            // line 87
             echo "                        <div class=\"col-12\">
                             <h5 class=\"ml-4 mt-4\" >
                                 Whoopsie Daisy, no products found!
@@ -196,7 +209,7 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 82
+        // line 93
         echo "                </div>
 
                 <div class=\"row\">
@@ -228,7 +241,7 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
 
     public function getDebugInfo()
     {
-        return array (  200 => 82,  189 => 76,  180 => 72,  172 => 67,  167 => 65,  157 => 58,  153 => 57,  145 => 52,  141 => 51,  136 => 49,  131 => 46,  126 => 45,  113 => 35,  104 => 28,  100 => 26,  94 => 24,  92 => 23,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  213 => 93,  202 => 87,  193 => 83,  185 => 78,  180 => 76,  170 => 69,  166 => 68,  158 => 63,  154 => 62,  149 => 60,  144 => 57,  139 => 56,  119 => 39,  114 => 36,  112 => 34,  104 => 28,  100 => 26,  94 => 24,  92 => 23,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -264,14 +277,25 @@ class __TwigTemplate_f2d5bae83637006e81bf58be659845ece7b563aec8bcd9ff3d009f018a7
                     </div>
                     <div class=\"col-9\">
                         <form>
-                            <div class=\"input-group\">
+                            <div
+                                class=\"input-group\"
+                                {{ stimulus_controller('search-preview',{
+                                    url : path('app_homepage')
+                                }) }}>
                                 <input
                                     name=\"q\"
                                     value=\"{{ searchTerm }}\"
                                     placeholder=\"Search products...\"
                                     type=\"search\"
                                     class=\"form-control\"
+                                    data-action=\"search-preview#onSearchInput\"
                                 >
+                                <div
+                                    class=\"search-preview\"
+                                    data-search-preview-target=\"result\"
+                                >
+
+                                </div>
                             </div>
                         </form>
                     </div>

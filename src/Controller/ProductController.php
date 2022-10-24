@@ -25,7 +25,10 @@ class ProductController extends AbstractController
             $category,
             $searchTerm
         );
-
+        if ($request->query->get('preview'))
+            return $this->render('product/_searchPreview.html.twig', [
+                'products'=>$products
+            ]);
         return $this->render('product/index.html.twig', [
             'currentCategory' => $category,
             'categories' => $categoryRepository->findAll(),

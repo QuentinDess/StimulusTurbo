@@ -47,83 +47,90 @@ class __TwigTemplate_0a6dbc79d597b81fe16e5ef5e5a940864a3703bd2d772a318883ad06ce0
         // line 4
         if (twig_get_attribute($this->env, $this->source, ($context["addToCartForm"] ?? null), "color", [], "any", true, true, false, 4)) {
             // line 5
-            echo "        <div data-controller=\"color-square\">
-            ";
+            echo "        <div
+                ";
             // line 6
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 6, $this->source); })()), "color", [], "any", false, false, false, 6), 'widget', ["attr" => ["data-color-square-target" => "select"]]);
-            // line 8
+            echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension']->renderStimulusController($this->env, "color-square", ["colorId" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,             // line 7
+(isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 7, $this->source); })()), "vars", [], "any", false, false, false, 7), "data", [], "any", false, false, false, 7), "product", [], "any", false, false, false, 7), "colors", [], "any", false, false, false, 7), 1, [], "array", false, false, false, 7), "id", [], "any", false, false, false, 7)]);
+            // line 9
+            echo "
+        >
+            ";
+            // line 11
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 11, $this->source); })()), "color", [], "any", false, false, false, 11), 'widget', ["attr" => ["data-color-square-target" => "select"]]);
+            // line 13
             echo "
 
             ";
-            // line 10
+            // line 15
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 10, $this->source); })()), "vars", [], "any", false, false, false, 10), "data", [], "any", false, false, false, 10), "product", [], "any", false, false, false, 10), "colors", [], "any", false, false, false, 10));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 15, $this->source); })()), "vars", [], "any", false, false, false, 15), "data", [], "any", false, false, false, 15), "product", [], "any", false, false, false, 15), "colors", [], "any", false, false, false, 15));
             foreach ($context['_seq'] as $context["_key"] => $context["color"]) {
-                // line 11
+                // line 16
                 echo "
                 <button class=\"color-square\"
                         aria-label=\"Choose the color ";
-                // line 13
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "name", [], "any", false, false, false, 13), "html", null, true);
+                // line 18
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "name", [], "any", false, false, false, 18), "html", null, true);
                 echo "\"
                         type=\"button\"
                         data-color-id=\"";
-                // line 15
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "id", [], "any", false, false, false, 15), "html", null, true);
+                // line 20
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "id", [], "any", false, false, false, 20), "html", null, true);
                 echo "\"
                         data-color-square-target=\"colorSquare\"
                         data-action=\"color-square#selectColor\"
                         style=\"background-color: rgb(";
-                // line 18
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "red", [], "any", false, false, false, 18), "html", null, true);
+                // line 23
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "red", [], "any", false, false, false, 23), "html", null, true);
                 echo ", ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "green", [], "any", false, false, false, 18), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "green", [], "any", false, false, false, 23), "html", null, true);
                 echo ",";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "blue", [], "any", false, false, false, 18), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["color"], "blue", [], "any", false, false, false, 23), "html", null, true);
                 echo ")\"></button>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['color'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 20
+            // line 25
             echo "        </div>
 
     ";
         }
-        // line 23
+        // line 28
         echo "
     ";
-        // line 24
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 24, $this->source); })()), "quantity", [], "any", false, false, false, 24), 'widget', ["attr" => ["class" => "mx-3"]]);
-        // line 26
+        // line 29
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 29, $this->source); })()), "quantity", [], "any", false, false, false, 29), 'widget', ["attr" => ["class" => "mx-3"]]);
+        // line 31
         echo "
 
     <button class=\"btn btn-info btn-sm\" formnovalidate>
         +
     </button>
 ";
-        // line 31
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 31, $this->source); })()), 'form_end');
+        // line 36
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 36, $this->source); })()), 'form_end');
         echo "
 
 <div>
     ";
-        // line 34
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 34, $this->source); })()), 'errors');
+        // line 39
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 39, $this->source); })()), 'errors');
         echo "
     ";
-        // line 35
-        if (twig_get_attribute($this->env, $this->source, ($context["addToCartForm"] ?? null), "color", [], "any", true, true, false, 35)) {
-            // line 36
+        // line 40
+        if (twig_get_attribute($this->env, $this->source, ($context["addToCartForm"] ?? null), "color", [], "any", true, true, false, 40)) {
+            // line 41
             echo "        ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 36, $this->source); })()), "color", [], "any", false, false, false, 36), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 41, $this->source); })()), "color", [], "any", false, false, false, 41), 'errors');
             echo "
     ";
         }
-        // line 38
+        // line 43
         echo "    ";
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 38, $this->source); })()), "quantity", [], "any", false, false, false, 38), 'errors');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["addToCartForm"]) || array_key_exists("addToCartForm", $context) ? $context["addToCartForm"] : (function () { throw new RuntimeError('Variable "addToCartForm" does not exist.', 43, $this->source); })()), "quantity", [], "any", false, false, false, 43), 'errors');
         echo "
 </div>
 ";
@@ -147,7 +154,7 @@ class __TwigTemplate_0a6dbc79d597b81fe16e5ef5e5a940864a3703bd2d772a318883ad06ce0
 
     public function getDebugInfo()
     {
-        return array (  125 => 38,  119 => 36,  117 => 35,  113 => 34,  107 => 31,  100 => 26,  98 => 24,  95 => 23,  90 => 20,  78 => 18,  72 => 15,  67 => 13,  63 => 11,  59 => 10,  55 => 8,  53 => 6,  50 => 5,  48 => 4,  45 => 3,  43 => 1,);
+        return array (  132 => 43,  126 => 41,  124 => 40,  120 => 39,  114 => 36,  107 => 31,  105 => 29,  102 => 28,  97 => 25,  85 => 23,  79 => 20,  74 => 18,  70 => 16,  66 => 15,  62 => 13,  60 => 11,  56 => 9,  54 => 7,  53 => 6,  50 => 5,  48 => 4,  45 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -156,7 +163,12 @@ class __TwigTemplate_0a6dbc79d597b81fe16e5ef5e5a940864a3703bd2d772a318883ad06ce0
     attr: { class: 'cart-add-controls d-flex align-items-center justify-content-baseline' }
 }) }}
     {% if addToCartForm.color is defined %}
-        <div data-controller=\"color-square\">
+        <div
+                {{ stimulus_controller('color-square',{
+                    colorId: addToCartForm.vars.data.product.colors[1].id
+                    })
+                }}
+        >
             {{ form_widget(addToCartForm.color, {
                 attr: {'data-color-square-target': 'select'}
             }) }}
