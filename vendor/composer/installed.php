@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '44982741f6eae47526ad9197fb09304392c46858',
+        'reference' => '7c7d668fb84e44a554201a805b4f090e44293a56',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '44982741f6eae47526ad9197fb09304392c46858',
+            'reference' => '7c7d668fb84e44a554201a805b4f090e44293a56',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -811,12 +811,12 @@
             'dev_requirement' => false,
         ),
         'symfony/ux-chartjs' => array(
-            'pretty_version' => 'v1.2.0',
-            'version' => '1.2.0.0',
+            'pretty_version' => 'v2.4.0',
+            'version' => '2.4.0.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/ux-chartjs',
             'aliases' => array(),
-            'reference' => '223557780fa304d66f62681307889bec5499642f',
+            'reference' => 'ae4f2b3c4da15e0144ade5f7f004a24a87223870',
             'dev_requirement' => false,
         ),
         'symfony/validator' => array(

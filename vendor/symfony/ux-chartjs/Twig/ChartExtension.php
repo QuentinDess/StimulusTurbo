@@ -12,6 +12,8 @@
 namespace Symfony\UX\Chartjs\Twig;
 
 use Symfony\UX\Chartjs\Model\Chart;
+use Symfony\WebpackEncoreBundle\Dto\StimulusControllersDto;
+use Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -24,6 +26,13 @@ use Twig\TwigFunction;
  */
 class ChartExtension extends AbstractExtension
 {
+    private $stimulus;
+
+    public function __construct(StimulusTwigExtension $stimulus)
+    {
+        $this->stimulus = $stimulus;
+    }
+
     public function getFunctions(): array
     {
         return [
@@ -35,11 +44,22 @@ class ChartExtension extends AbstractExtension
     {
         $chart->setAttributes(array_merge($chart->getAttributes(), $attributes));
 
-        $html = '
-            <canvas
-                data-controller="'.trim($chart->getDataController().' symfony--ux-chartjs--chart').'"
-                data-view="'.twig_escape_filter($env, json_encode($chart->createView()), 'html_attr').'"
-        ';
+        $controllers = [];
+        if ($chart->getDataController()) {
+            $controllers[$chart->getDataController()] = [];
+        }
+        $controllers['@symfony/ux-chartjs/chart'] = ['view' => $chart->createView()];
+
+        if (class_exists(StimulusControllersDto::class)) {
+            $dto = new StimulusControllersDto($env);
+            foreach ($controllers as $name => $controllerValues) {
+                $dto->addController($name, $controllerValues);
+            }
+
+            $html = '<canvas '.$dto.' ';
+        } else {
+            $html = '<canvas '.$this->stimulus->renderStimulusController($env, $controllers).' ';
+        }
 
         foreach ($chart->getAttributes() as $name => $value) {
             if ('data-controller' === $name) {
