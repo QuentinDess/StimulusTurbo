@@ -4824,6 +4824,12 @@
         <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.ighTZmB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="cartStorage" type="service_closure" id="App\Service\CartStorage"/>
+      </argument>
+    </service>
     <service id=".service_locator.W0r5Q6B" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4868,9 +4874,10 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.o.4jVwy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EoXf_44" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CartController::_shoppingCartList" type="service_closure" id=".service_locator.ighTZmB"/>
         <argument key="App\Controller\CartController::addItemToCart" type="service_closure" id=".service_locator.80nwlvV"/>
         <argument key="App\Controller\CartController::removeItemToCart" type="service_closure" id=".service_locator.SkKsEeW"/>
         <argument key="App\Controller\CartController::shoppingCart" type="service_closure" id=".service_locator.OWBJK42"/>
@@ -4886,6 +4893,7 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
+        <argument key="App\Controller\CartController:_shoppingCartList" type="service_closure" id=".service_locator.ighTZmB"/>
         <argument key="App\Controller\CartController:addItemToCart" type="service_closure" id=".service_locator.80nwlvV"/>
         <argument key="App\Controller\CartController:removeItemToCart" type="service_closure" id=".service_locator.SkKsEeW"/>
         <argument key="App\Controller\CartController:shoppingCart" type="service_closure" id=".service_locator.OWBJK42"/>
@@ -5314,12 +5322,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.o.4jVwy"/>
+      <argument type="service" id=".service_locator.EoXf_44"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.o.4jVwy"/>
+      <argument type="service" id=".service_locator.EoXf_44"/>
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
@@ -5707,7 +5715,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.o.4jVwy"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EoXf_44"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

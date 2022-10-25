@@ -19,6 +19,7 @@ return [
     'app_cart' => [[], ['_controller' => 'App\\Controller\\CartController::shoppingCart'], [], [['text', '/cart']], [], []],
     'app_cart_add_item' => [['id'], ['_controller' => 'App\\Controller\\CartController::addItemToCart'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'app_cart_remove_item' => [['productId', 'colorId'], ['colorId' => null, '_controller' => 'App\\Controller\\CartController::removeItemToCart'], [], [['variable', '/', '[^/]++', 'colorId', true], ['variable', '/', '[^/]++', 'productId', true], ['text', '/cart/remove']], [], []],
+    '_app_cart_list' => [[], ['_controller' => 'App\\Controller\\CartController::_shoppingCartList'], [], [['text', '/cart/_list']], [], []],
     'app_checkout' => [[], ['_controller' => 'App\\Controller\\CheckoutController::checkout'], [], [['text', '/checkout']], [], []],
     'app_confirmation' => [[], ['_controller' => 'App\\Controller\\CheckoutController::confirmation'], [], [['text', '/confirmation']], [], []],
     'app_homepage' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/']], [], []],
