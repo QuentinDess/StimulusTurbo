@@ -345,6 +345,13 @@
         <argument type="service" id=".service_locator.ULEwkxg.App\Controller\CheckoutController"/>
       </call>
     </service>
+    <service id="App\Controller\ProductAdminController" class="App\Controller\ProductAdminController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ULEwkxg.App\Controller\ProductAdminController"/>
+      </call>
+    </service>
     <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -375,6 +382,9 @@
       <argument type="service" id="router.default"/>
     </service>
     <service id="App\Form\CheckoutFormType" class="App\Form\CheckoutFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
@@ -850,6 +860,7 @@
       <argument type="collection">
         <argument>App\Form\AddItemToCartFormType</argument>
         <argument>App\Form\CheckoutFormType</argument>
+        <argument>App\Form\ProductType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1208,7 +1219,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.FW.zxau"/>
+      <argument type="service" id=".service_locator.76Zt8Vb"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4467,6 +4478,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CheckoutController" class="App\Controller\CheckoutController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CheckoutController" class="App\Controller\CheckoutController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CheckoutController" class="App\Controller\CheckoutController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProductAdminController" class="App\Controller\ProductAdminController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductAdminController" class="App\Controller\ProductAdminController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProductAdminController" class="App\Controller\ProductAdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4482,6 +4496,8 @@
     <service id=".abstract.instanceof.App\Form\AddItemToCartFormType" class="App\Form\AddItemToCartFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CheckoutFormType" class="App\Form\CheckoutFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CheckoutFormType" class="App\Form\CheckoutFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductType" class="App\Form\ProductType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -4865,6 +4881,18 @@
         <argument key="session" type="service_closure" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.0Fb1YCW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="productRepository" type="service_closure" id="App\Repository\ProductRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5OibA2." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="product" type="service_closure" id=".errored..service_locator.5OibA2..App\Entity\Product"/>
+      </argument>
+    </service>
     <service id=".service_locator.Zpl.nrE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4894,7 +4922,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.EGoarXT" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.qnq4.5l" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::dashboard" type="service_closure" id=".service_locator.4TftXj6"/>
@@ -4904,6 +4932,10 @@
         <argument key="App\Controller\CartController::shoppingCart" type="service_closure" id=".service_locator.OWBJK42"/>
         <argument key="App\Controller\CheckoutController::checkout" type="service_closure" id=".service_locator.W0r5Q6B"/>
         <argument key="App\Controller\CheckoutController::confirmation" type="service_closure" id=".service_locator.87uE_rh"/>
+        <argument key="App\Controller\ProductAdminController::delete" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProductAdminController::edit" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProductAdminController::index" type="service_closure" id=".service_locator.0Fb1YCW"/>
+        <argument key="App\Controller\ProductAdminController::show" type="service_closure" id=".service_locator.5OibA2."/>
         <argument key="App\Controller\ProductController::index" type="service_closure" id=".service_locator.Zpl.nrE"/>
         <argument key="App\Controller\ProductController::showProduct" type="service_closure" id=".service_locator.Ze8.f9W"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.7Gi7Fkh"/>
@@ -4921,6 +4953,10 @@
         <argument key="App\Controller\CartController:shoppingCart" type="service_closure" id=".service_locator.OWBJK42"/>
         <argument key="App\Controller\CheckoutController:checkout" type="service_closure" id=".service_locator.W0r5Q6B"/>
         <argument key="App\Controller\CheckoutController:confirmation" type="service_closure" id=".service_locator.87uE_rh"/>
+        <argument key="App\Controller\ProductAdminController:delete" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProductAdminController:edit" type="service_closure" id=".service_locator.5OibA2."/>
+        <argument key="App\Controller\ProductAdminController:index" type="service_closure" id=".service_locator.0Fb1YCW"/>
+        <argument key="App\Controller\ProductAdminController:show" type="service_closure" id=".service_locator.5OibA2."/>
         <argument key="App\Controller\ProductController:index" type="service_closure" id=".service_locator.Zpl.nrE"/>
         <argument key="App\Controller\ProductController:showProduct" type="service_closure" id=".service_locator.Ze8.f9W"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.7Gi7Fkh"/>
@@ -4989,11 +5025,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.FW.zxau" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.76Zt8Vb" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AddItemToCartFormType" type="service_closure" id="App\Form\AddItemToCartFormType"/>
         <argument key="App\Form\CheckoutFormType" type="service_closure" id="App\Form\CheckoutFormType"/>
+        <argument key="App\Form\ProductType" type="service_closure" id="App\Form\ProductType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
@@ -5192,6 +5229,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ULEwkxg" method="withContext"/>
     </service>
+    <service id=".service_locator.ULEwkxg.App\Controller\ProductAdminController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ProductAdminController"/>
+      <argument>App\Controller\ProductAdminController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ULEwkxg" method="withContext"/>
+    </service>
     <service id=".service_locator.ULEwkxg.App\Controller\ProductController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ProductController"/>
       <argument>App\Controller\ProductController</argument>
@@ -5344,16 +5387,17 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.EGoarXT"/>
+      <argument type="service" id=".service_locator.qnq4.5l"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.EGoarXT"/>
+      <argument type="service" id=".service_locator.qnq4.5l"/>
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.80nwlvV.App\Entity\Product" class="App\Entity\Product"/>
+    <service id=".errored..service_locator.5OibA2..App\Entity\Product" class="App\Entity\Product"/>
     <service id=".errored..service_locator.Ze8.f9W.App\Entity\Product" class="App\Entity\Product"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
@@ -5738,7 +5782,7 @@
     <service id="Symfony\UX\Chartjs\Builder\ChartBuilderInterface" alias="chartjs.builder"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EGoarXT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.qnq4.5l"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

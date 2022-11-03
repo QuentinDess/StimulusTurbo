@@ -18,6 +18,8 @@ return [
         '/cart/_list' => [[['_route' => '_app_cart_list', '_controller' => 'App\\Controller\\CartController::_shoppingCartList'], null, null, null, false, false, null]],
         '/checkout' => [[['_route' => 'app_checkout', '_controller' => 'App\\Controller\\CheckoutController::checkout'], null, null, null, false, false, null]],
         '/confirmation' => [[['_route' => 'app_confirmation', '_controller' => 'App\\Controller\\CheckoutController::confirmation'], null, null, null, false, false, null]],
+        '/admin/product' => [[['_route' => 'product_admin_index', '_controller' => 'App\\Controller\\ProductAdminController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/admin/product/new' => [[['_route' => 'product_admin_new', '_controller' => 'App\\Controller\\ProductAdminController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [[['_route' => 'app_homepage', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -47,6 +49,11 @@ return [
                     .'|rt/remove/([^/]++)(?:/([^/]++))?(*:236)'
                     .'|tegory/([^/]++)(*:259)'
                 .')'
+                .'|/admin/product/([^/]++)(?'
+                    .'|(*:294)'
+                    .'|/edit(*:307)'
+                    .'|(*:315)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -62,8 +69,11 @@ return [
             [['_route' => 'app_product', '_controller' => 'App\\Controller\\ProductController::showProduct'], ['id'], ['GET' => 0], null, false, true, null],
         ],
         236 => [[['_route' => 'app_cart_remove_item', 'colorId' => null, '_controller' => 'App\\Controller\\CartController::removeItemToCart'], ['productId', 'colorId'], ['POST' => 0], null, false, true, null]],
-        259 => [
-            [['_route' => 'app_category', '_controller' => 'App\\Controller\\ProductController::index'], ['id'], null, null, false, true, null],
+        259 => [[['_route' => 'app_category', '_controller' => 'App\\Controller\\ProductController::index'], ['id'], null, null, false, true, null]],
+        294 => [[['_route' => 'product_admin_show', '_controller' => 'App\\Controller\\ProductAdminController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        307 => [[['_route' => 'product_admin_edit', '_controller' => 'App\\Controller\\ProductAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        315 => [
+            [['_route' => 'product_admin_delete', '_controller' => 'App\\Controller\\ProductAdminController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
